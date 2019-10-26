@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+
+    <style>
+        .slider-nav {
+            height: 500px;
+        }
+        .slider-nav .slick-list {
+            padding: 0 !important;
+            height: 100% !important;
+        }
+        .slider-nav .slick-list .slick-track {
+            height: 100% !important;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        /* width */
+        .slider-nav .slick-list .slick-track::-webkit-scrollbar {
+        width: 4px;
+        }
+
+        /* Track */
+        .slider-nav .slick-list .slick-track::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background-color: #dbdbdb;
+        }
+        
+        /* Handle */
+        .slider-nav .slick-list .slick-track::-webkit-scrollbar-thumb {
+            background: #a3be86; 
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="slider-for">
+                    <div style="background: red; width: 1000px; height: 500px;">your content 1 </div>
+                    <div style="background: blue; width: 1000px; height: 500px;">your content 2 </div>
+                    <div style="background: green; width: 1000px; height: 500px;">your content 3 </div>
+                    <div style="background: red; width: 1000px; height: 500px;">your content 1 </div>
+                    <div style="background: blue; width: 1000px; height: 500px;">your content 2 </div>
+                </div>
+            </div>
+            <div class="col-lg-3" style="padding: 0px;">
+                <div class="slider-nav d-flex flex-column">
+                    <div style="background: red; width: 200px; height: 150px;">your content1</div>
+                    <div style="background: blue; width: 200px; height: 150px;">your content2</div>
+                    <div style="background: green; width: 200px; height: 150px;">your content3</div>
+                    <div style="background: red; width: 200px; height: 150px;">your content1</div>
+                    <div style="background: blue; width: 200px; height: 150px;">your content2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Slick Slider JS -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        $(document).ready(function(){
+            $('.slider-for').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.slider-nav'
+            });
+            var childLen = $('.slider-nav').children().length;
+            $('.slider-nav').slick({
+                slidesToShow: childLen,
+                vertical: true,
+                asNavFor: '.slider-for',
+                dots: true,
+                centerMode: true,
+                focusOnSelect: true
+            });
+        });
+    </script>
+</body>
+</html>
